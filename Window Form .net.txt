@@ -1,0 +1,22 @@
+private void button1_Click(object sender, EventArgs e)
+{
+
+    string UserName = textBox1.Text;
+    string email = textBox2.Text;
+    string password = textBox3.Text;
+
+    if (!string.IsNullOrWhiteSpace(UserName) && (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password)))
+    {
+        MessageBox.Show("Please enter both email and password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+    }
+    else if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+    {
+        MessageBox.Show("Please fill in all fields (Name, Email, Password)!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+    }
+    else
+    {
+        MessageBox.Show($"Hello, {UserName}!\nYour information has been saved.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        string data = $"Name: {UserName}, Email: {email}, Password: {password}";
+    }
+}
